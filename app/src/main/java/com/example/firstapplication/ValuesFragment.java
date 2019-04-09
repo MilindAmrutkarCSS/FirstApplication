@@ -21,6 +21,9 @@ public class ValuesFragment extends Fragment {
 
     Unbinder unbinder;
 
+    @BindView(R.id.fgLastName)
+    TextView fgLastName;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -32,8 +35,9 @@ public class ValuesFragment extends Fragment {
         if (getArguments() != null) {
 
             String firstName = getArguments().getString(Constants.FIRST_NAME);
-
+            String lastName = getArguments().getString(Constants.LAST_NAME);
             fgFirstName.setText(firstName);
+            fgLastName.setText(lastName);
         }
 
         return view;

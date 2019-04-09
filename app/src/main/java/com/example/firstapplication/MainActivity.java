@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
                 valuesFragment = new ValuesFragment();
                 Bundle bundleFragment = new Bundle();
                 bundleFragment.putString(Constants.FIRST_NAME, etFirstName.getText().toString());
+                bundleFragment.putString(Constants.LAST_NAME, etLastName.getText().toString());
                 valuesFragment.setArguments(bundleFragment);
                 loadFragment(valuesFragment);
                 break;
