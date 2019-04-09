@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btnSubmit:
-                /*if (!TextUtils.isEmpty(etFirstName.getText()) && !TextUtils.isEmpty(etLastName.getText())) {
+                if (!TextUtils.isEmpty(etFirstName.getText()) && !TextUtils.isEmpty(etLastName.getText())) {
                     firstName = etFirstName.getText().toString();
                     lastName = etLastName.getText().toString();
 
@@ -52,13 +52,13 @@ public class MainActivity extends AppCompatActivity {
                     intent.putExtra(Constants.FIRST_NAME, firstName);
                     intent.putExtra(Constants.LAST_NAME, lastName);
                     startActivityForResult(intent, SECOND_ACTIVITY_REQUEST_CODE);
-                }*/
-                valuesFragment = new ValuesFragment();
+                }
+                /*valuesFragment = new ValuesFragment();
                 Bundle bundleFragment = new Bundle();
                 bundleFragment.putString(Constants.FIRST_NAME, etFirstName.getText().toString());
                 bundleFragment.putString(Constants.LAST_NAME, etLastName.getText().toString());
                 valuesFragment.setArguments(bundleFragment);
-                loadFragment(valuesFragment);
+                loadFragment(valuesFragment);*/
                 break;
         }
     }

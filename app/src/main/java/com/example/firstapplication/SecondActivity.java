@@ -6,6 +6,9 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -20,11 +23,16 @@ public class SecondActivity extends AppCompatActivity {
     @BindView(R.id.btnSendToFirstActivity)
     Button btnSendToFirstActivity;
 
+    ValuesFragment valuesFragment;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
         ButterKnife.bind(this);
+
+        valuesFragment = new ValuesFragment();
+        loadFragment(valuesFragment);
 
         Intent intent = getIntent();
 
@@ -40,12 +48,26 @@ public class SecondActivity extends AppCompatActivity {
 
     @OnClick(R.id.btnSendToFirstActivity)
     public void onViewClicked() {
-        firstName = etFName.getText().toString();
+       /* firstName = etFName.getText().toString();
         lastName = etLName.getText().toString();
         Intent intent = new Intent();
         intent.putExtra(Constants.F_NAME, etFName.getText().toString());
         intent.putExtra(Constants.L_NAME, etLName.getText().toString());
         setResult(RESULT_OK, intent);
-        finish();
+        finish();*/
+
+       valuesFragment = new ValuesFragment();
+       Bundle bundle = new Bundle();
+       bundle.putString(Constants.FIRST_NAME, etFName.getText().toString());
+       bundle.putString(Constants.LAST_NAME, etLName.getText().toString());
+       valuesFragment.setArguments(bundle);
+       loadFragment(valuesFragment);
+    }
+
+    public void loadFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.container, fragment);
+        fragmentTransaction.commit();
     }
 }
