@@ -28,7 +28,14 @@
     <FrameLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="200dp"
+        android:background="#0DE717">
     </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/container2"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="#70B2E6"/>
 
 </LinearLayout>

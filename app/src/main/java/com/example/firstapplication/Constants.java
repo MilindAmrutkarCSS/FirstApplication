@@ -6,5 +6,8 @@ public class Constants {
     public static final String LAST_NAME = "lastName";
     public static final String F_NAME = "fName";
     public static final String L_NAME = "lName";
+    public static final String FRAGMENT_FNAME = "frgFirstName";
+    public static final String FRAGMENT_LNAME = "frgLastName";
+
 
 }
