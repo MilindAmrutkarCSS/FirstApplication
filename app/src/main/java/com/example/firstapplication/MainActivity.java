@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     String firstName, lastName;
 
     ValuesFragment valuesFragment;
+    Values2Fragment values2Fragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,14 +38,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         valuesFragment = new ValuesFragment();
+        values2Fragment = new Values2Fragment();
         loadFragment(valuesFragment);
+        loadFragment2(values2Fragment);
     }
 
     @OnClick({R.id.btnSubmit})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btnSubmit:
-                if (!TextUtils.isEmpty(etFirstName.getText()) && !TextUtils.isEmpty(etLastName.getText())) {
+               /* if (!TextUtils.isEmpty(etFirstName.getText()) && !TextUtils.isEmpty(etLastName.getText())) {
                     firstName = etFirstName.getText().toString();
                     lastName = etLastName.getText().toString();
 
@@ -52,13 +55,14 @@ public class MainActivity extends AppCompatActivity {
                     intent.putExtra(Constants.FIRST_NAME, firstName);
                     intent.putExtra(Constants.LAST_NAME, lastName);
                     startActivityForResult(intent, SECOND_ACTIVITY_REQUEST_CODE);
-                }
-                /*valuesFragment = new ValuesFragment();
+                }*/
+                valuesFragment = new ValuesFragment();
                 Bundle bundleFragment = new Bundle();
                 bundleFragment.putString(Constants.FIRST_NAME, etFirstName.getText().toString());
                 bundleFragment.putString(Constants.LAST_NAME, etLastName.getText().toString());
                 valuesFragment.setArguments(bundleFragment);
-                loadFragment(valuesFragment);*/
+                loadFragment(valuesFragment);
+
                 break;
         }
     }
@@ -82,6 +86,13 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.container, fragment);
+        fragmentTransaction.commit();
+    }
+
+    private void loadFragment2(Fragment fragment) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.container2, fragment);
         fragmentTransaction.commit();
     }
 }
